@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colegio Montano Cortijo - Malla Curricular Preprimaria</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            montano: {
+              navy: '#15368A',
+              darkNavy: '#0F2766',
+              mediumBlue: '#3B66B3',
+              hoverBlue: '#2F5599',
+              gold: '#FACC15',
+              goldHover: '#EAB308',
+              bg: '#F1F5F9',
+              text: '#334155',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F1F5F9;
+      color: #334155;
+    }
+
+    /* Tarjeta institucional */
+    .montano-card {
+      background-color: #FFFFFF;
+      border-radius: 12px;
+      border-left: 6px solid #15368A;
+      box-shadow: 0 4px 14px rgba(15, 39, 102, 0.08);
+    }
+
+    /* Estilo de pestañas institucionales */
+    .tab-btn {
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      font-weight: 700;
+      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+    }
+
+    .tab-active {
+      background-color: #FACC15;
+      color: #15368A;
+      border-bottom: 4px solid #15368A;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .tab-inactive {
+      background-color: #3B66B3;
+      color: #FFFFFF;
+      border-bottom: 4px solid transparent;
+    }
+
+    .tab-inactive:hover {
+      background-color: #2F5599;
+    }
+
+    /* Estilos de impresión limpios */
+    @media print {
+      body {
+        background-color: #FFFFFF !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .montano-card {
+        box-shadow: none !important;
+        border: 1px solid #CBD5E1;
+        border-left: 6px solid #15368A !important;
+        break-inside: avoid;
+      }
+      header {
+        background-color: #15368A !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      tr {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- ENCABEZADO INSTITUCIONAL SUPERIOR -->
+  <header class="bg-[#15368A] text-white shadow-md sticky top-0 z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-col lg:flex-row items-center justify-between gap-3">
+      
+      <!-- Izquierda: Escudo Oficial y Nombre del Colegio -->
+      <div class="flex items-center gap-3.5 w-full lg:w-auto justify-center lg:justify-start">
+        <div class="flex-shrink-0 bg-white rounded-xl px-2 py-1.5 shadow-md border border-white/90 flex items-center justify-center" style="width: 72px; height: 82px;">
+          <svg viewBox="0 0 240 276" class="w-full h-full overflow-visible" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Escudo Oficial Colegio Montano Cortijo">
+            <defs>
+              <linearGradient id="cmcOuterBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0284C7"/>
+                <stop offset="50%" stop-color="#0A4D9C"/>
+                <stop offset="100%" stop-color="#1E40AF"/>
+              </linearGradient>
+              <linearGradient id="cmcGoldFill" x1="20%" y1="5%" x2="80%" y2="95%">
+                <stop offset="0%" stop-color="#FEF08A"/>
+                <stop offset="35%" stop-color="#FACC15"/>
+                <stop offset="80%" stop-color="#F59E0B"/>
+                <stop offset="100%" stop-color="#D97706"/>
+              </linearGradient>
+              <linearGradient id="cmcRibbonBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#07255A"/>
+                <stop offset="28%" stop-color="#0B3B82"/>
+                <stop offset="50%" stop-color="#10408A"/>
+                <stop offset="72%" stop-color="#0B3B82"/>
+                <stop offset="100%" stop-color="#07255A"/>
+              </linearGradient>
+              <filter id="cmcShadow" x="-12%" y="-12%" width="124%" height="124%">
+                <feDropShadow dx="0" dy="2" stdDeviation="2.2" flood-color="#07255A" flood-opacity="0.28"/>
+              </filter>
+              <path id="cmcRibbonCurve" d="M 30,174 Q 120,204 210,174"/>
+            </defs>
+
+            <path d="M 32,18 Q 120,34 208,18 L 208,120 C 208,176 158,208 120,222 C 82,208 32,176 32,120 Z"
+                  fill="url(#cmcOuterBlue)" filter="url(#cmcShadow)"/>
+            <path d="M 40,27 Q 120,42 200,27 L 200,119 C 200,169 154,199 120,212 C 86,199 40,169 40,119 Z"
+                  fill="#FFFFFF"/>
+            <path d="M 46,34 Q 120,48 194,34 L 194,118 C 194,163 151,191 120,203 C 89,191 46,163 46,118 Z"
+                  fill="#B45309"/>
+            <path d="M 49,37 Q 120,50 191,37 L 191,117 C 191,160 150,187 120,199 C 90,187 49,160 49,117 Z"
+                  fill="url(#cmcGoldFill)"/>
+            <path d="M 52,40 Q 120,52 188,40 L 188,88 Q 120,104 52,88 Z"
+                  fill="#FEF9C3" opacity="0.45"/>
+
+            <g filter="url(#cmcShadow)" transform="translate(0, 2) rotate(-2.5 120 112)">
+              <g fill="#0A4D9C" stroke="#0A4D9C" stroke-width="11" stroke-linejoin="miter" stroke-miterlimit="3">
+                <path d="M 111,88 L 111,72 L 99,64 L 68,64 L 56,74 L 56,130 L 68,140 L 99,140 L 111,132 L 111,116 L 93,116 L 93,124 L 74,124 L 74,80 L 93,80 L 93,88 Z"/>
+                <path d="M 121,140 L 121,64 L 139,64 L 154,96 L 169,64 L 187,64 L 187,140 L 169,140 L 169,95 L 154,124 L 139,95 L 139,140 Z"/>
+              </g>
+              <g fill="#FFFFFF" stroke="#FFFFFF" stroke-width="5.5" stroke-linejoin="miter" stroke-miterlimit="3">
+                <path d="M 111,88 L 111,72 L 99,64 L 68,64 L 56,74 L 56,130 L 68,140 L 99,140 L 111,132 L 111,116 L 93,116 L 93,124 L 74,124 L 74,80 L 93,80 L 93,88 Z"/>
+                <path d="M 121,140 L 121,64 L 139,64 L 154,96 L 169,64 L 187,64 L 187,140 L 169,140 L 169,95 L 154,124 L 139,95 L 139,140 Z"/>
+              </g>
+              <g fill="#0A4D9C">
+                <path d="M 111,88 L 111,72 L 99,64 L 68,64 L 56,74 L 56,130 L 68,140 L 99,140 L 111,132 L 111,116 L 93,116 L 93,124 L 74,124 L 74,80 L 93,80 L 93,88 Z"/>
+                <path d="M 121,140 L 121,64 L 139,64 L 154,96 L 169,64 L 187,64 L 187,140 L 169,140 L 169,95 L 154,124 L 139,95 L 139,140 Z"/>
+              </g>
+            </g>
+
+            <g filter="url(#cmcShadow)">
+              <polygon points="18,148 44,158 38,180 15,168" fill="#051B42"/>
+              <polygon points="222,148 196,158 202,180 225,168" fill="#051B42"/>
+              <path d="M 18,148 Q 120,185 222,148 L 217,179 Q 120,216 23,179 Z"
+                    fill="url(#cmcRibbonBlue)" stroke="#FFFFFF" stroke-width="1.4"/>
+              <text fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="8.6" letter-spacing="0.45">
+                <textPath href="#cmcRibbonCurve" startOffset="50%" text-anchor="middle">EXCELENCIA HUMANA, ACADÉMICA Y FÍSICA</textPath>
+              </text>
+            </g>
+
+            <g fill="#0A4D9C">
+              <polygon points="62,230 64.4,235.5 70.4,236 65.8,239.9 67.2,245.7 62,242.6 56.8,245.7 58.2,239.9 53.6,236 59.6,235.5"/>
+              <polygon points="91,230 93.4,235.5 99.4,236 94.8,239.9 96.2,245.7 91,242.6 85.8,245.7 87.2,239.9 82.6,236 88.6,235.5"/>
+              <polygon points="120,230 122.4,235.5 128.4,236 123.8,239.9 125.2,245.7 120,242.6 114.8,245.7 116.2,239.9 111.6,236 117.6,235.5"/>
+              <polygon points="149,230 151.4,235.5 157.4,236 152.8,239.9 154.2,245.7 149,242.6 143.8,245.7 145.2,239.9 140.6,236 146.6,235.5"/>
+              <polygon points="178,230 180.4,235.5 186.4,236 181.8,239.9 183.2,245.7 178,242.6 172.8,245.7 174.2,239.9 169.6,236 175.6,235.5"/>
+            </g>
+
+            <text x="120" y="271" text-anchor="middle" fill="#0A4D9C"
+                  font-family="'Arial Black', Impact, sans-serif" font-weight="900" font-size="27" letter-spacing="2.8">
+              CORTIJO
+            </text>
+          </svg>
+        </div>
+        <div class="text-center lg:text-left">
+          <h1 class="text-lg sm:text-xl font-extrabold tracking-tight leading-tight uppercase text-white">
+            COLEGIO MONTANO CORTIJO
+          </h1>
+          <p class="text-xs sm:text-sm font-semibold italic text-[#FACC15]">
+            Malla Curricular — Expresión Artística (Danza y Teatro)
+          </p>
+        </div>
+      </div>
+
+      <!-- Centro: Caja de Metadatos del Documento -->
+      <div class="bg-[#0F2766]/80 border border-white/15 rounded-lg px-4 py-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs sm:text-sm shadow-inner w-full lg:w-auto">
+        <div>
+          <span class="text-[#FACC15] font-bold italic">Documento:</span>
+          <span class="text-white font-medium ml-1">Malla Curricular</span>
+        </div>
+        <span class="hidden sm:inline text-white/30">|</span>
+        <div>
+          <span class="text-[#FACC15] font-bold italic">Nivel:</span>
+          <span class="text-white font-medium ml-1">Preprimaria</span>
+        </div>
+        <span class="hidden sm:inline text-white/30">|</span>
+        <div>
+          <span class="text-[#FACC15] font-bold italic">Maestra:</span>
+          <span class="text-white font-medium ml-1">Rebeca Sian</span>
+        </div>
+        <span class="hidden sm:inline text-white/30">|</span>
+        <div>
+          <span class="text-[#FACC15] font-bold italic">Ciclo Escolar:</span>
+          <span class="text-white font-medium ml-1">2027</span>
+        </div>
+      </div>
+
+      <!-- Derecha: Botón Pantalla Completa -->
+      <div class="no-print flex-shrink-0">
+        <button id="fullscreenBtn" onclick="toggleFullScreen()" class="bg-[#FACC15] hover:bg-[#EAB308] text-[#15368A] font-bold italic text-xs sm:text-sm px-4 py-2.5 rounded-lg shadow transition flex items-center gap-2 cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          <span id="fullscreenText">Pantalla Completa</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- BARRA DE NAVEGACIÓN POR PESTAÑAS Y BUSCADOR -->
+  <div class="bg-[#E2E8F0]/70 border-b border-slate-300 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-3 pb-2 flex flex-col md:flex-row md:items-center justify-between gap-3">
+      
+      <!-- Pestañas Principales Adaptadas a la Malla Curricular -->
+      <nav class="flex flex-wrap gap-2" aria-label="Navegación de Malla Curricular">
+        <button id="tab-danza" onclick="switchTab('danza')" class="tab-btn tab-active px-5 py-2.5 text-xs sm:text-sm cursor-pointer">
+          MALLA DE DANZA
+        </button>
+        <button id="tab-teatro" onclick="switchTab('teatro')" class="tab-btn tab-inactive px-5 py-2.5 text-xs sm:text-sm cursor-pointer">
+          MALLA DE TEATRO
+        </button>
+        <button id="tab-completa" onclick="switchTab('completa')" class="tab-btn tab-inactive px-5 py-2.5 text-xs sm:text-sm cursor-pointer">
+          MALLA COMPLETA / IMPRIMIR
+        </button>
+      </nav>
+
+      <!-- Buscador y Filtro por Competencia -->
+      <div class="flex flex-wrap items-center gap-2">
+        <div class="relative flex-grow sm:flex-grow-0">
+          <input 
+            type="text" 
+            id="searchInput" 
+            oninput="applyFilters()" 
+            placeholder="Buscar competencia, indicador o tema..." 
+            class="w-full sm:w-64 pl-8 pr-3 py-1.5 text-xs sm:text-sm bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#15368A] text-slate-700"
+          />
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-slate-400 absolute left-2.5 top-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
+
+        <select id="compFilter" onchange="applyFilters()" class="py-1.5 px-2.5 text-xs sm:text-sm bg-white border border-slate-300 rounded-lg font-medium text-[#15368A] focus:outline-none focus:ring-2 focus:ring-[#15368A] cursor-pointer">
+          <option value="all">Todas las competencias (1–3)</option>
+          <option value="1">Competencia 1 (Conciencia corporal)</option>
+          <option value="2">Competencia 2 (Lenguajes artísticos)</option>
+          <option value="3">Competencia 3 (Respeto y expresión)</option>
+        </select>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 py-6 space-y-6">
+
+    <!-- ==================== VISTA 1: MALLA CURRICULAR DE DANZA ==================== -->
+    <section id="view-danza" class="space-y-6">
+      <div class="montano-card p-5 sm:p-8">
+        <!-- Encabezado de Tarjeta -->
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-4 border-b border-slate-200 mb-6">
+          <div>
+            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-[#15368A]/10 text-[#15368A] text-[11px] font-extrabold italic uppercase mb-1">
+              Malla Curricular Oficial
+            </div>
+            <h2 class="text-xl sm:text-2xl font-extrabold italic uppercase text-[#15368A] tracking-tight">
+              EXPRESIÓN ARTÍSTICA EN EL ÁREA DE DANZA
+            </h2>
+            <p class="text-xs sm:text-sm font-semibold text-slate-500 mt-1">
+              Nivel: <span class="text-[#15368A]">Preprimaria</span> &nbsp;·&nbsp; Maestra: <span class="text-[#15368A]">Rebeca Sian</span> &nbsp;·&nbsp; Competencias: <span class="text-[#15368A]">3 Bloques Curriculares</span>
+            </p>
+          </div>
+          <!-- Píldoras de Filtro Rápido por Competencia -->
+          <div class="flex flex-wrap items-center gap-1.5 text-xs font-bold">
+            <button type="button" onclick="setQuickComp('all')" id="pill-danza-all" class="px-3 py-1.5 rounded-lg bg-[#15368A] text-[#FACC15] shadow-sm transition cursor-pointer">
+              Todas (3)
+            </button>
+            <button type="button" onclick="setQuickComp('1')" id="pill-danza-1" class="px-3 py-1.5 rounded-lg bg-blue-50 text-[#15368A] border border-blue-200 hover:bg-blue-100 transition cursor-pointer">
+              Comp. 1
+            </button>
+            <button type="button" onclick="setQuickComp('2')" id="pill-danza-2" class="px-3 py-1.5 rounded-lg bg-blue-50 text-[#15368A] border border-blue-200 hover:bg-blue-100 transition cursor-pointer">
+              Comp. 2
+            </button>
+            <button type="button" onclick="setQuickComp('3')" id="pill-danza-3" class="px-3 py-1.5 rounded-lg bg-blue-50 text-[#15368A] border border-blue-200 hover:bg-blue-100 transition cursor-pointer">
+              Comp. 3
+            </button>
+          </div>
+        </div>
+
+        <!-- Tabla de Malla Curricular de Danza (4 Columnas: No., Competencia, Indicador de logro, Contenido) -->
+        <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-[#15368A] text-white text-xs sm:text-sm uppercase italic">
+                <th class="py-3.5 px-3 font-extrabold w-20 text-center border-r border-white/15">No.</th>
+                <th class="py-3.5 px-4 font-extrabold w-[24%] border-r border-white/15 text-[#FACC15]">Competencia</th>
+                <th class="py-3.5 px-4 font-extrabold w-[24%] border-r border-white/15 text-[#FACC15]">Indicador de logro</th>
+                <th class="py-3.5 px-4 font-extrabold text-white">Contenido</th>
+              </tr>
+            </thead>
+            <tbody id="danza-tbody" class="divide-y divide-slate-200 text-xs sm:text-sm"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VISTA 2: MALLA CURRICULAR DE TEATRO ==================== -->
+    <section id="view-teatro" class="space-y-6 hidden">
+      <div class="montano-card p-5 sm:p-8">
+        <!-- Encabezado de Tarjeta -->
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-4 border-b border-slate-200 mb-6">
+          <div>
+            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-[#15368A]/10 text-[#15368A] text-[11px] font-extrabold italic uppercase mb-1">
+              Malla Curricular Oficial
+            </div>
+            <h2 class="text-xl sm:text-2xl font-extrabold italic uppercase text-[#15368A] tracking-tight">
+              EXPRESIÓN ARTÍSTICA EN EL ÁREA DE TEATRO
+            </h2>
+            <p class="text-xs sm:text-sm font-semibold text-slate-500 mt-1">
+              Nivel: <span class="text-[#15368A]">Preprimaria</span> &nbsp;·&nbsp; Maestra: <span class="text-[#15368A]">Rebeca Sian</span> &nbsp;·&nbsp; Competencias: <span class="text-[#15368A]">3 Bloques Curriculares</span>
+            </p>
+          </div>
+          <!-- Píldoras de Filtro Rápido por Competencia -->
+          <div class="flex flex-wrap items-center gap-1.5 text-xs font-bold">
+            <button type="button" onclick="setQuickComp('all')" id="pill-teatro-all" class="px-3 py-1.5 rounded-lg bg-[#15368A] text-[#FACC15] shadow-sm transition cursor-pointer">
+              Todas (3)
+            </button>
+            <button type="button" onclick="setQuickComp('1')" id="pill-teatro-1" class="px-3 py-1.5 rounded-lg bg-blue-50 text-[#15368A] border border-blue-200 hover:bg-blue-100 transition cursor-pointer">
+              Comp. 1
+            </button>
+            <button type="button" onclick="setQuickComp('2')" id="pill-teatro-2" class="px-3 py-1.5 rounded-lg bg-blue-50 text-[#15368A] border border-blue-200 hover:bg-blue-100 transition cursor-pointer">
+              Comp. 2
+            </button>
+            <button type="button" onclick="setQuickComp('3')" id="pill-teatro-3" class="px-3 py-1.5 rounded-lg bg-blue-50 text-[#15368A] border border-blue-200 hover:bg-blue-100 transition cursor-pointer">
+              Comp. 3
+            </button>
+          </div>
+        </div>
+
+        <!-- Tabla de Malla Curricular de Teatro (4 Columnas: No., Competencia, Indicador de logro, Contenido) -->
+        <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-[#15368A] text-white text-xs sm:text-sm uppercase italic">
+                <th class="py-3.5 px-3 font-extrabold w-20 text-center border-r border-white/15">No.</th>
+                <th class="py-3.5 px-4 font-extrabold w-[24%] border-r border-white/15 text-[#FACC15]">Competencia</th>
+                <th class="py-3.5 px-4 font-extrabold w-[24%] border-r border-white/15 text-[#FACC15]">Indicador de logro</th>
+                <th class="py-3.5 px-4 font-extrabold text-white">Contenido</th>
+              </tr>
+            </thead>
+            <tbody id="teatro-tbody" class="divide-y divide-slate-200 text-xs sm:text-sm"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VISTA 3: MALLA COMPLETA E IMPRESIÓN ==================== -->
+    <section id="view-completa" class="space-y-6 hidden">
+      <div class="montano-card p-5 sm:p-8">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200 mb-6">
+          <div>
+            <h2 class="text-xl sm:text-2xl font-extrabold italic uppercase text-[#15368A] tracking-tight">
+              MALLA CURRICULAR INTEGRAL — PREPRIMARIA
+            </h2>
+            <p class="text-xs sm:text-sm font-semibold text-slate-500 mt-1">
+              Expresión Artística en las áreas de Danza y Teatro • Maestra Rebeca Sian
+            </p>
+          </div>
+          <button onclick="window.print()" class="no-print bg-[#15368A] hover:bg-[#0F2766] text-white font-bold italic text-xs sm:text-sm px-4 py-2.5 rounded-lg shadow transition flex items-center gap-2 self-start sm:self-auto cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#FACC15]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 6 2 18 2 18 9"></polyline>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            Imprimir / Guardar PDF
+          </button>
+        </div>
+
+        <!-- Bloque 1: Malla Curricular de Danza -->
+        <div class="mb-8">
+          <h3 class="text-base sm:text-lg font-extrabold italic uppercase text-[#15368A] mb-3 flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#FACC15] border border-[#15368A]"></span>
+            1. MALLA CURRICULAR — PREPRIMARIA • EXPRESIÓN ARTÍSTICA EN EL ÁREA DE DANZA
+          </h3>
+          <div class="overflow-x-auto rounded-xl border border-slate-200">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-[#15368A] text-white text-xs uppercase italic">
+                  <th class="py-3 px-3 font-extrabold w-16 text-center border-r border-white/15">No.</th>
+                  <th class="py-3 px-3 font-extrabold w-[24%] border-r border-white/15 text-[#FACC15]">Competencia</th>
+                  <th class="py-3 px-3 font-extrabold w-[24%] border-r border-white/15 text-[#FACC15]">Indicador de logro</th>
+                  <th class="py-3 px-3 font-extrabold text-white">Contenido</th>
+                </tr>
+              </thead>
+              <tbody id="completa-danza-tbody" class="divide-y divide-slate-200 text-xs"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Bloque 2: Malla Curricular de Teatro -->
+        <div>
+          <h3 class="text-base sm:text-lg font-extrabold italic uppercase text-[#15368A] mb-3 flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#3B66B3]"></span>
+            2. MALLA CURRICULAR — PREPRIMARIA • EXPRESIÓN ARTÍSTICA EN EL ÁREA DE TEATRO
+          </h3>
+          <div class="overflow-x-auto rounded-xl border border-slate-200">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-[#15368A] text-white text-xs uppercase italic">
+                  <th class="py-3 px-3 font-extrabold w-16 text-center border-r border-white/15">No.</th>
+                  <th class="py-3 px-3 font-extrabold w-[24%] border-r border-white/15 text-[#FACC15]">Competencia</th>
+                  <th class="py-3 px-3 font-extrabold w-[24%] border-r border-white/15 text-[#FACC15]">Indicador de logro</th>
+                  <th class="py-3 px-3 font-extrabold text-white">Contenido</th>
+                </tr>
+              </thead>
+              <tbody id="completa-teatro-tbody" class="divide-y divide-slate-200 text-xs"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="bg-white border-t border-slate-200 py-4 mt-8 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+      <p class="font-semibold text-[#15368A]">Colegio Montano Cortijo — Área de Expresión Artística</p>
+      <p>Malla Curricular Oficial • Preprimaria • Maestra Rebeca Sian • Ciclo Escolar 2027</p>
+    </div>
+  </footer>
+
+  <!-- LÓGICA DE DATOS E INTERACTIVIDAD -->
+  <script>
+    // Datos oficiales de la Malla Curricular de Preprimaria — Área de Danza
+    const mallaDanza = [
+      {
+        id: '1',
+        no: '1',
+        competencia: 'Demuestra conciencia de su cuerpo, de su movimiento y de sus capacidades perceptivas.',
+        indicadores: [
+          'Comenta las sensaciones y emociones que producen en su cuerpo la ejecución de movimientos.'
+        ],
+        bloques: [
+          {
+            titulo: 'Sensopercepción Kinética',
+            items: [
+              'Experiencias y ejercicios sensoriales aplicados a los diferentes temas del movimiento.',
+              'Exploración del movimiento de todo el cuerpo y de sus partes grandes, medianas y pequeñas, en aislamiento, guiando y siguiendo.',
+              'Toma de conciencia del espacio gestual.',
+              'Toma de conciencia de la energía y el tiempo con que se mueve el cuerpo. Memoria kinestésica y sensorial.',
+              'Participación en ejercicios y experiencias para el calentamiento del cuerpo y desarrollo de fuerza, flexibilidad y resistencia. Conciencia corporal.',
+              'Práctica de patrones de coordinación: movimientos homólogos, homolaterales y cros laterales.',
+              'Práctica de ejercicios de respiración y relajación.',
+              'Práctica de posturas con el cuerpo: cerrada, abierta, erguida.',
+              'Práctica de hábitos de cuidado y limpieza del cuerpo.',
+              'Conciencia del entorno físico y humano.',
+              'Aplicación de las reglas en el juego de movimiento creativo, tomando en cuenta la relación entre las personas y el espacio.'
+            ]
+          }
+        ]
+      },
+      {
+        id: '2',
+        no: '2',
+        competencia: 'Establece relaciones entre los diversos lenguajes artísticos al comunicar sus sentimientos, ideas y emociones.',
+        indicadores: [
+          'Utiliza su cuerpo como instrumento y el movimiento como medio al expresar ideas y emociones.'
+        ],
+        bloques: [
+          {
+            titulo: 'DANZA – MOVIMIENTO CREATIVO',
+            subtitulo: 'Elementos y principios del movimiento: El cuerpo',
+            items: [
+              'Ejercitación del movimiento de las partes del cuerpo una a una.',
+              'Participación en acciones locomotoras y no locomotoras.',
+              'Realización de formas con su cuerpo: rectas, con picos, redondas, retorcidas.',
+              'Aplicación de distintos soportes del cuerpo (acostados, sentados, parados).'
+            ]
+          },
+          {
+            subtitulo: 'El espacio',
+            items: [
+              'Utilización adecuada del espacio personal y compartido.',
+              'Seguimiento de dirección en relación con el cuerpo: adelante, atrás, lado y lado.',
+              'Participación en desplazamientos en niveles alto, medio y bajo.',
+              'Ejecución de movimientos representando tamaños con el cuerpo: grande y pequeño.'
+            ]
+          },
+          {
+            subtitulo: 'La energía y el tiempo',
+            items: [
+              'Ejecución de movimientos en tensión y relajación.',
+              'Ejecución de movimientos siguiendo el pulso y velocidad de la música.'
+            ]
+          },
+          {
+            subtitulo: 'Las relaciones',
+            items: [
+              'Relación entre partes del cuerpo en movimiento y con su entorno: sobre, bajo, dentro, fuera, lejos, cerca.'
+            ]
+          }
+        ]
+      },
+      {
+        id: '3',
+        no: '3',
+        competencia: 'Demuestra respeto hacia la expresión artística de su comunidad en sus diferentes manifestaciones.',
+        indicadores: [
+          'Apreciación',
+          'Participa en actividades artísticas escolares que involucren el movimiento, la expresión gestual y gráfica y la audición musical.'
+        ],
+        bloques: [
+          {
+            titulo: 'DANZA – MOVIMIENTO CREATIVO',
+            items: [
+              'Participación en danzas sociales, tradicionales y teatrales tomando en cuenta sus habilidades y limitaciones.',
+              'Respuesta personal ante diversos eventos artísticos por medio de diferentes modalidades de expresión.'
+            ]
+          }
+        ]
+      }
+    ];
+
+    // Datos oficiales de la Malla Curricular de Preprimaria — Área de Teatro
+    const mallaTeatro = [
+      {
+        id: '1',
+        no: '1.',
+        competencia: 'Demuestra conciencia de su cuerpo, de su movimiento y de sus capacidades perceptivas.',
+        indicadores: [
+          'Explora estímulos que le permiten percibir una variedad de sensaciones.'
+        ],
+        bloques: [
+          {
+            titulo: 'TEATRO – ARTE DRAMÁTICO',
+            items: [
+              'Relación de los sentidos con el medio ambiente: vista, tacto, olfato, oído, gusto.',
+              'Exploración de sonidos vocales, corporales, onomatopéyicos.'
+            ]
+          }
+        ]
+      },
+      {
+        id: '2',
+        no: '2.',
+        competencia: 'Establece relaciones entre los diversos lenguajes artísticos al comunicar sus sentimientos, ideas y emociones.',
+        indicadores: [
+          'Desarrolla formas de expresión para comunicarse.'
+        ],
+        bloques: [
+          {
+            titulo: 'TEATRO – ARTE DRAMÁTICO',
+            items: [
+              'Reacción espontánea ante sonidos, palabras, imágenes.',
+              'Descripción de lugares, objetos, animales, situaciones, historias.',
+              'Ejercitación de la proyección de la voz mediante frases, poemas, canciones, trabalenguas.',
+              'Participación en juegos con intención dramática: juego de roles, creación de personajes, juegos domésticos, de ocupaciones, pantomimas, mimos, dramatizaciones, uso de títeres.',
+              'Improvisación de expresiones vocales y corporales usando sonidos, música, canciones, bailes, temas.'
+            ]
+          }
+        ]
+      },
+      {
+        id: '3',
+        no: '3.',
+        competencia: 'Demuestra respeto hacia la expresión artística de su comunidad en sus diferentes manifestaciones.',
+        indicadores: [
+          'Participa en actividades artísticas escolares que involucren el movimiento, la expresión gestual y gráfica y la audición musical.'
+        ],
+        bloques: [
+          {
+            items: [
+              'Participación en actividades escénicas de su escuela y comunidad.',
+              'Escenificación de vivencias según las tradiciones de la comunidad.'
+            ]
+          }
+        ]
+      }
+    ];
+
+    // Renderiza filas estructuradas de la Malla Curricular
+    function renderMallaRows(rows, compact = false) {
+      const padClass = compact ? 'py-3 px-3' : 'py-4 px-4';
+      const spaceClass = compact ? 'space-y-2.5' : 'space-y-3.5';
+
+      return rows.map((row, idx) => {
+        const bgRow = idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/55';
+
+        const indicadoresHtml = row.indicadores.map((ind) => {
+          const isEje = ind.trim().toLowerCase() === 'apreciación';
+          if (isEje) {
+            return `
+              <div class="inline-block px-2.5 py-0.5 rounded bg-[#FACC15]/35 text-[#15368A] font-extrabold italic uppercase text-[11px] border border-[#FACC15]">
+                ${ind}
+              </div>
+            `;
+          }
+          return `
+            <div class="font-medium text-slate-800 leading-relaxed border-l-4 border-[#3B66B3] pl-3 py-1 bg-white rounded-r-md shadow-2xs">
+              ${ind}
+            </div>
+          `;
+        }).join('');
+
+        const bloquesHtml = row.bloques.map((bloque) => {
+          const tituloHtml = bloque.titulo
+            ? `<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#15368A] text-[#FACC15] font-extrabold italic uppercase text-[11px] sm:text-xs tracking-wide mb-2 shadow-2xs">${bloque.titulo}</div>`
+            : '';
+          const subtituloHtml = bloque.subtitulo
+            ? `<div class="text-xs sm:text-sm font-bold text-[#15368A] bg-blue-50/90 border-l-4 border-[#FACC15] px-2.5 py-1 rounded-r mb-2">${bloque.subtitulo}</div>`
+            : '';
+          const listaHtml = `
+            <ul class="space-y-1.5 text-slate-700 leading-relaxed">
+              ${bloque.items.map((item) => `
+                <li class="flex items-start gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#3B66B3] mt-2 flex-shrink-0"></span>
+                  <span>${item}</span>
+                </li>
+              `).join('')}
+            </ul>
+          `;
+
+          return `
+            <div class="bg-slate-50/80 border border-slate-200/90 rounded-lg p-3">
+              ${tituloHtml}
+              ${subtituloHtml}
+              ${listaHtml}
+            </div>
+          `;
+        }).join('');
+
+        return `
+          <tr class="${bgRow} hover:bg-blue-50/30 transition">
+            <td class="${padClass} text-center font-extrabold italic border-r border-slate-200 align-top">
+              <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[#15368A] text-[#FACC15] text-sm shadow-sm">
+                ${row.no}
+              </span>
+            </td>
+            <td class="${padClass} border-r border-slate-200 align-top bg-blue-50/25">
+              <div class="font-semibold text-[#15368A] leading-relaxed border-l-4 border-[#15368A] pl-3 py-1.5 bg-white rounded-r-md shadow-2xs">
+                ${row.competencia}
+              </div>
+            </td>
+            <td class="${padClass} border-r border-slate-200 align-top">
+              <div class="space-y-2">
+                ${indicadoresHtml}
+              </div>
+            </td>
+            <td class="${padClass} align-top">
+              <div class="${spaceClass}">
+                ${bloquesHtml}
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // Sincroniza píldoras rápidas con el selector de competencia
+    function setQuickComp(compVal) {
+      document.getElementById('compFilter').value = compVal;
+      updateCompPills(compVal);
+      applyFilters();
+    }
+
+    function updateCompPills(compVal) {
+      ['danza', 'teatro'].forEach((area) => {
+        ['all', '1', '2', '3'].forEach((key) => {
+          const btn = document.getElementById(`pill-${area}-${key}`);
+          if (!btn) return;
+          if (compVal === key) {
+            btn.className = 'px-3 py-1.5 rounded-lg bg-[#15368A] text-[#FACC15] shadow-sm transition cursor-pointer';
+          } else {
+            btn.className = key === 'all'
+              ? 'px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 border border-slate-300 hover:bg-slate-200 transition cursor-pointer'
+              : 'px-3 py-1.5 rounded-lg bg-blue-50 text-[#15368A] border border-blue-200 hover:bg-blue-100 transition cursor-pointer';
+          }
+        });
+      });
+    }
+
+    // Filtra y renderiza las tablas
+    function applyFilters() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const comp = document.getElementById('compFilter').value;
+      updateCompPills(comp);
+
+      const filterFn = (row) => {
+        const matchesComp = comp === 'all' || row.id === comp;
+        const bloquesText = row.bloques.map(b => `${b.titulo || ''} ${b.subtitulo || ''} ${b.items.join(' ')}`).join(' ');
+        const fullText = `${row.no} ${row.competencia} ${row.indicadores.join(' ')} ${bloquesText}`.toLowerCase();
+        const matchesQuery = !query || fullText.includes(query);
+        return matchesComp && matchesQuery;
+      };
+
+      const filteredDanza = mallaDanza.filter(filterFn);
+      const filteredTeatro = mallaTeatro.filter(filterFn);
+
+      document.getElementById('danza-tbody').innerHTML = filteredDanza.length
+        ? renderMallaRows(filteredDanza, false)
+        : `<tr><td colspan="4" class="text-center py-8 text-slate-500 italic">No se encontraron contenidos en la Malla de Danza con los criterios seleccionados.</td></tr>`;
+
+      document.getElementById('teatro-tbody').innerHTML = filteredTeatro.length
+        ? renderMallaRows(filteredTeatro, false)
+        : `<tr><td colspan="4" class="text-center py-8 text-slate-500 italic">No se encontraron contenidos en la Malla de Teatro con los criterios seleccionados.</td></tr>`;
+
+      document.getElementById('completa-danza-tbody').innerHTML = filteredDanza.length
+        ? renderMallaRows(filteredDanza, true)
+        : `<tr><td colspan="4" class="text-center py-6 text-slate-500 italic">Sin registros en Danza para el filtro actual.</td></tr>`;
+
+      document.getElementById('completa-teatro-tbody').innerHTML = filteredTeatro.length
+        ? renderMallaRows(filteredTeatro, true)
+        : `<tr><td colspan="4" class="text-center py-6 text-slate-500 italic">Sin registros en Teatro para el filtro actual.</td></tr>`;
+    }
+
+    // Cambio de pestañas
+    function switchTab(tabName) {
+      const views = ['danza', 'teatro', 'completa'];
+      views.forEach((v) => {
+        const viewEl = document.getElementById(`view-${v}`);
+        const tabEl = document.getElementById(`tab-${v}`);
+        if (v === tabName) {
+          viewEl.classList.remove('hidden');
+          tabEl.classList.remove('tab-inactive');
+          tabEl.classList.add('tab-active');
+        } else {
+          viewEl.classList.add('hidden');
+          tabEl.classList.remove('tab-active');
+          tabEl.classList.add('tab-inactive');
+        }
+      });
+    }
+
+    // Modo Pantalla Completa
+    function toggleFullScreen() {
+      const btnText = document.getElementById('fullscreenText');
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().then(() => {
+          btnText.textContent = 'Salir Pantalla Completa';
+        }).catch(() => {});
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen().then(() => {
+            btnText.textContent = 'Pantalla Completa';
+          }).catch(() => {});
+        }
+      }
+    }
+
+    document.addEventListener('fullscreenchange', () => {
+      const btnText = document.getElementById('fullscreenText');
+      if (!document.fullscreenElement) {
+        btnText.textContent = 'Pantalla Completa';
+      }
+    });
+
+    // Inicializar al cargar
+    window.addEventListener('DOMContentLoaded', () => {
+      applyFilters();
+    });
+  </script>
+</body>
+</html>
